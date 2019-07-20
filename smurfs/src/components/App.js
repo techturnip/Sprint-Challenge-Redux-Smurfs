@@ -5,6 +5,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 // Component imports
 import Navigation from './Navigation/Navigation'
 import Smurfs from './Smurfs/Smurfs'
+import AddSmurf from './Smurfs/AddSmurf'
 import { Route } from 'react-router-dom'
 
 class App extends Component {
@@ -18,6 +19,8 @@ class App extends Component {
         <Navigation />
 
         <Route exact path="/" component={Smurfs} />
+
+        <Route exact path="/add" component={AddSmurf} />
       </div>
     )
   }

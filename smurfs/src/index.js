@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 const store = createStore(
-  rootReducer, // this is the most basic reducer. A function that returns and object. Replace it.
+  rootReducer,
   compose(
     applyMiddleware(thunk, logger),
     window.__REDUX_DEVTOOLS_EXTENSION__

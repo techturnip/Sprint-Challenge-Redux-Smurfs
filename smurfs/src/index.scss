@@ -1,2 +1,11 @@
 @import './components/Navigation/Navigation';
 @import './components/Smurfs/Smurfs';
+
+// style the loading spinner
+.pre-loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}

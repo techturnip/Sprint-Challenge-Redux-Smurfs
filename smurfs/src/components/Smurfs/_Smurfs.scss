@@ -1,0 +1,45 @@
+.smurfs {
+
+  // Smurf.js component styles
+  .smurf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    // details
+    .smurf-details {
+      .smurf-name {
+        margin: 0;
+        padding-bottom: .5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+    }
+
+    // action buttons
+    .smurf-actions {
+      .material-icons {
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+
+      .delete {
+        color: red;
+      }
+    }
+  }
+}
+
+// Add Smurf form
+.add-smurf {
+  padding: 1rem;
+
+  h4 {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+}

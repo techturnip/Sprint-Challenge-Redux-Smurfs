@@ -25,6 +25,21 @@ export const DELETE_SMURF_FAILED = 'DELETE_SMURF_FAILED'
 
 // addSmurf() - MVP - POST Request
 //=====================================================|
+export const addSmurf = smurf => {
+  return dispatch => {
+    dispatch({ type: ADD_SMURF_START })
+
+    return axios
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(res => {
+        dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data })
+      })
+      .catch(err => {
+        const payload = err.response ? err.response.data : err
+        dispatch({ type: ADD_SMURF_FAILED, payload })
+      })
+  }
+}
 
 // getSmurfs() - MVP - GET Request
 //=====================================================|
