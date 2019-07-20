@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Icon } from 'react-materialize'
+import { connect } from 'react-redux'
+import { deleteSmurf } from '../../actions'
 
 class Smurf extends Component {
   render() {
-    const { name, age, height } = this.props.smurf
+    const { name, age, height, id } = this.props.smurf
+    const { deleteSmurf } = this.props
 
     return (
       <div className="smurf card">
@@ -13,16 +16,27 @@ class Smurf extends Component {
           <p className="smurf-height">Height: {height}</p>
         </div>
         <div className="smurf-actions">
-          <Icon small className="red-text delete">
-            delete
-          </Icon>
-          <Icon small className="blue-text edit">
-            edit
-          </Icon>
+          <div onClick={e => deleteSmurf(id)}>
+            <Icon small className="red-text delete">
+              delete
+            </Icon>
+          </div>
+          <div>
+            <Icon small className="blue-text edit">
+              edit
+            </Icon>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default Smurf
+const mapDispatchToProps = {
+  deleteSmurf
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Smurf)

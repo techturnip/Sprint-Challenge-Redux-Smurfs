@@ -67,3 +67,18 @@ export const getSmurfs = () => {
 
 // deleteSmurf() - Stretch - DELETE Request
 //=====================================================|
+export const deleteSmurf = id => {
+  return dispatch => {
+    dispatch({ type: DELETE_SMURF_START })
+
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data })
+      })
+      .catch(err => {
+        const payload = err.response ? err.response.data : err
+        dispatch({ type: DELETE_SMURF_FAILED, payload })
+      })
+  }
+}

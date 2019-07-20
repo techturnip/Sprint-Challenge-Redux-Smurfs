@@ -37,7 +37,6 @@ class AddSmurf extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { name, height, age } = this.state
     return (
       <div className="add-smurf card">
