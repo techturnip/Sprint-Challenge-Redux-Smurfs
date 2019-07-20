@@ -16,6 +16,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    // case GET_SMURFS
     case GET_SMURFS_START: {
       return {
         ...state,
