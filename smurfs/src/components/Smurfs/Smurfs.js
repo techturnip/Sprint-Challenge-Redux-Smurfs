@@ -5,7 +5,7 @@ import { Preloader } from 'react-materialize'
 
 class Smurfs extends Component {
   componentDidMount() {
-    // dispatch here
+    this.props.getSmurfs()
   }
 
   render() {
@@ -25,6 +25,9 @@ class Smurfs extends Component {
     return (
       <div className="smurfs">
         <h4>Smurfs:</h4>
+        {smurfs.map(smurf => (
+          <div className="card">{smurf.name}</div>
+        ))}
       </div>
     )
   }
