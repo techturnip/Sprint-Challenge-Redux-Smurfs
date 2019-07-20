@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.scss'
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -15,8 +15,8 @@ class App extends Component {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
