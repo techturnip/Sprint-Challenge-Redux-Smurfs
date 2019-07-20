@@ -23,8 +23,13 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+      Actions are objects that describe what "type of action" has taken place and pass along the associated data into the reducer which specifies how the state should change in response to the actions being sent in, the reducer passes along the updated state to the store where it can then signal to the subscribing components of an application to be updated in order to reflect the new state.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+      Application state allows us to avoid scalability challenges in maintaining our applications through reducing the need for prop drilling and also facilitates that one way data flow where as Component state would be difficult to trace down complex component trees. If you have many components that may need access to the same state but may not share the same component hierarchy then Application state may be optimal. If you only need to house your form data and the state is only needed by one parent component and a child or two then component state may be sufficient.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+      redux-thunk allows us to return a function instead of an action inside of our action creators. It also gives us direct access to redux's dispatch method which allows us to create finite state machines easily and opens up redux to async capabilities.
 
 ## Project Set Up
 
@@ -63,11 +68,11 @@ Your finished project must include all of the following requirements:
 
 ```js
 return dispatch => {
-  dispatch({ type: FOO_ACTION_TYPE });
+  dispatch({ type: FOO_ACTION_TYPE })
   promise.then(({ data }) => {
-    dispatch({ type: ANOTHER_ACTION_TYPE, payload: data });
-  });
-};
+    dispatch({ type: ANOTHER_ACTION_TYPE, payload: data })
+  })
+}
 ```
 
 **API Design** - This is how you'll interface with the API and what is required from every endpoint.
@@ -78,14 +83,14 @@ return dispatch => {
 - [ ] Double check that your response from the server is an array of smurfs.
 
 ```js
-[
+;[
   {
     name: 'Brainey',
     age: 200,
     height: '5cm',
     id: 0
   }
-];
+]
 ```
 
 ### POST '/smurfs'
@@ -111,7 +116,7 @@ Initially Brainey will be in the array, but it takes more than one smurf to make
 Example of object created in Smurf DB:
 
 ```js
-[
+;[
   {
     name: 'Brainey',
     age: 200,
@@ -124,7 +129,7 @@ Example of object created in Smurf DB:
     height: '5cm',
     id: 1
   }
-];
+]
 ```
 
 ## STRETCH PROBLEM
@@ -178,5 +183,5 @@ output: [
     height: '5cm',
     id: 1
   }
-];
+]
 ```

@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+import React, { Component } from 'react'
+// Styling imports
+import M from 'materialize-css'
+import 'materialize-css/dist/css/materialize.min.css'
+// Component imports
+import Navigation from './Navigation/Navigation'
+import Smurfs from './Smurfs/Smurfs'
+import AddSmurf from './Smurfs/AddSmurf'
+import UpdateSmurf from './Smurfs/UpdateSmurf'
+import { Route } from 'react-router-dom'
+
 class App extends Component {
+  componentDidMount() {
+    M.AutoInit()
+  }
+
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+      <div className="App container">
+        <Navigation />
+
+        <Route exact path="/" component={Smurfs} />
+
+        <Route exact path="/add" component={AddSmurf} />
+
+        <Route exact path="/smurfs/:id" component={UpdateSmurf} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
