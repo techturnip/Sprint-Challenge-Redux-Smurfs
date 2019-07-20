@@ -64,6 +64,23 @@ export const getSmurfs = () => {
 
 // updateSmurf() - Stretch - PUT Request
 //=====================================================|
+export const updateSmurf = smurf => {
+  return dispatch => {
+    dispatch({ type: UPDATE_SMURF_START })
+
+    const { id, name, height, age } = smurf
+
+    return axios
+      .put(`http://localhost:3333/smurfs/${id}`, { name, height, age })
+      .then(res => {
+        dispatch({ type: UPDATE_SMURF_SUCCESS, payload: res.data })
+      })
+      .catch(err => {
+        const payload = err.response ? err.response.data : err
+        dispatch({ type: UPDATE_SMURF_FAILED, payload })
+      })
+  }
+}
 
 // deleteSmurf() - Stretch - DELETE Request
 //=====================================================|

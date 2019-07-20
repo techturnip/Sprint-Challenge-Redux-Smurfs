@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from 'react-materialize'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteSmurf } from '../../actions'
 
@@ -21,7 +22,7 @@ class Smurf extends Component {
               delete
             </Icon>
           </div>
-          <div>
+          <div onClick={() => this.props.history.push(`/smurfs/${id}`)}>
             <Icon small className="blue-text edit">
               edit
             </Icon>
@@ -36,7 +37,9 @@ const mapDispatchToProps = {
   deleteSmurf
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Smurf)
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Smurf)
+)
