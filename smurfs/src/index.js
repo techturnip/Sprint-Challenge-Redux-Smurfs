@@ -4,13 +4,13 @@ import './index.scss'
 import App from './components/App'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-// import rootReducer from './reducers'
+import rootReducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 const store = createStore(
-  () => {}, // this is the most basic reducer. A function that returns and object. Replace it.
+  rootReducer, // this is the most basic reducer. A function that returns and object. Replace it.
   compose(
     applyMiddleware(thunk, logger),
     window.__REDUX_DEVTOOLS_EXTENSION__
@@ -21,7 +21,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )
